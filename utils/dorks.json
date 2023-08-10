@@ -1,0 +1,9 @@
+{
+  "Juice params": "inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:target",
+  "Juice Endpoints": "site:target ext:jsp | ext:asp | ext:aspx | ext:pl | ext:cfm | ext:py | ext:rb",
+  "Sensitive Infos": "inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:target",
+  "XSS and Open Redirect": "inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http site:target",
+  "XSS": "inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:target",
+  "Juice extensions": "site:target ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:gz | ext:secret | ext:rar",
+  "Detect WP": "site:target inurl:wp-content | inurl:wp-admin"
+}
