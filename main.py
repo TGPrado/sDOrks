@@ -1,4 +1,3 @@
-from googlesearch import search
 import json
 from sys import argv
 
@@ -85,4 +84,5 @@ if __name__ == "__main__":
     fileContent = open(fileName).readlines()
     fileContent = [line.replace("\n", "") for line in fileContent]
     fileContent = removeNullStrings(fileContent)
+
     makeSearchForDork(fileContent, secrets)
