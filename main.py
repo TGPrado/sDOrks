@@ -1,9 +1,11 @@
 import json
+import requests
+from os import path
 from sys import argv
 
-import requests
 
-dorks = json.load(open("utils/dorks.json"))
+scriptDirectory = path.dirname(path.abspath(__file__))
+dorks = json.load(open(f"{scriptDirectory}/utils/dorks.json"))
 googleAPIURL = "https://www.googleapis.com/customsearch/v1"
 
 def checkFileParam():
@@ -21,7 +23,8 @@ def getSecrets():
                 "cx": argv[argv.index("-cs") + 1]
                 } 
     try:
-        secrets = json.load(open("utils/secrets.json"))
+        secrets = json.load(open(f"{scriptDirectory}/utils/secrets.json"))
+
         if secrets["key"] != "" and secrets["cx"] != "":
             return secrets
         raise TypeError("Please provide valid secrets")
