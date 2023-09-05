@@ -46,7 +46,6 @@ def makeSearchForDomain(dorkReplaced, secrets):
         "q":dorkReplaced,
         "start": 0
     }
-    nextPage = 0
     while True:
         res = requests.get(
             googleAPIURL,
@@ -64,8 +63,9 @@ def makeSearchForDomain(dorkReplaced, secrets):
             break 
         urls = [items["link"] for items in res["items"]]
         printArray(urls)
-
         nextPage = res["queries"]["nextPage"][0]["startIndex"]
+        if nextPage == 101:
+            break
         params["start"] = nextPage
         
 def printArray(array):
