@@ -59,10 +59,14 @@ def makeSearchForDomain(dorkReplaced, secrets):
             exit()
         
         res = res.json()
-        if "nextPage" not in res["queries"]:
-            break 
+        if not "items" in res:
+            break
+
         urls = [items["link"] for items in res["items"]]
         printArray(urls)
+        
+        if "nextPage" not in res["queries"]:
+            break 
         nextPage = res["queries"]["nextPage"][0]["startIndex"]
         if nextPage == 101:
             break
